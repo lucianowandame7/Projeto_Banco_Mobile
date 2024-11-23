@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".PixActivity">
+
+    <!-- Título da tela -->
+    <TextView
+        android:id="@+id/tituloPix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gerenciamento Pix"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <!-- Botão 'Cadastrar Chave Pix' -->
+
+    <!-- Botão 'Remover Chave Pix' -->
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#2196F3"
+        android:onClick="CadastrarChavePix"
+        android:padding="12dp"
+        android:text="Cadastro de Chaves"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tituloPix" />
+
+    <Button
+        android:id="@+id/buttonRemoverChavePix"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Remover Chave Pix"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#F44336"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="32dp"
+        android:padding="12dp"
+        android:onClick="RemoverChavePix"
+        app:layout_constraintTop_toBottomOf="@id/button3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botão 'Listagem de Chaves' -->
+    <Button
+        android:id="@+id/buttonListagemPix"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Listagem de Chaves"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="32dp"
+        android:padding="12dp"
+        android:onClick="ListagemPix"
+        app:layout_constraintTop_toBottomOf="@id/buttonRemoverChavePix"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botão 'Enviar Pix' -->
+    <Button
+        android:id="@+id/buttonEnviarPix"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Enviar PIX"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFC107"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="32dp"
+        android:padding="12dp"
+        android:onClick="EnviarPix"
+        app:layout_constraintTop_toBottomOf="@id/buttonListagemPix"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Rodapé informativo -->
+    <TextView
+        android:id="@+id/footerTextPix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Realize suas transações Pix com segurança"
+        android:textColor="#757575"
+        android:textSize="14sp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

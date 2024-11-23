@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".CadastroChavePixActivity">
+
+    <!-- Título da tela -->
+    <TextView
+        android:id="@+id/tituloCadastroChavePix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Chave Pix"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo de entrada para a chave Pix -->
+    <EditText
+        android:id="@+id/editTextCadastroChavePix"
+        android:layout_width="377dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#2196F3"
+        android:hint="Digite aqui a sua nova chave (telefone ou CPF)"
+        android:inputType="text"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tituloCadastroChavePix" />
+
+    <!-- Botão para cadastrar chave Pix -->
+    <Button
+        android:id="@+id/buttonCadastrarChavePix"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar Chave Pix"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#4CAF50"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="32dp"
+        android:padding="12dp"
+        android:onClick="CadastrarChavePix"
+        app:layout_constraintTop_toBottomOf="@id/editTextCadastroChavePix"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Rodapé informativo -->
+    <TextView
+        android:id="@+id/footerTextCadastroChavePix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Digite seu telefone ou CPF para cadastrar a chave"
+        android:textColor="#757575"
+        android:textSize="14sp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

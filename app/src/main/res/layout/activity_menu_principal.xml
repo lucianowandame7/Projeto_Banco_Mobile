@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".MenuPrincipalActivity">
+
+    <!-- Título da tela -->
+    <TextView
+        android:id="@+id/tituloMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu Principal"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#0D47A1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
+
+    <!-- Botão 'Conta' -->
+    <Button
+        android:id="@+id/buttonConta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="conta"
+        android:text="Conta"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2196F3"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="32dp"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/tituloMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botão 'Pix' -->
+    <Button
+        android:id="@+id/buttonPix"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="pix"
+        android:text="Pix"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2196F3"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="32dp"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/buttonConta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Texto informativo no rodapé -->
+    <TextView
+        android:id="@+id/footerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Banco Grêmio - Segurança e praticidade para você!"
+        android:textColor="#757575"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

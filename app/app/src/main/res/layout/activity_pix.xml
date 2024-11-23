@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PixActivity">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="CadastrarChavePix"
+            android:text="Cadastro de Chaves"
+            android:backgroundTint="@android:color/holo_blue_light"/>
+
+        <Button
+            android:id="@+id/buttonRemoverChavePix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:onClick="RemoverChavePix"
+            android:text="Remover Chave Pix" />
+
+        <Button
+            android:id="@+id/buttonListagemPix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ListagemPix"
+            android:text="Listagem de chaves"
+            android:backgroundTint="@android:color/holo_blue_light"/>
+
+        <Button
+            android:id="@+id/buttonEnviarPix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="EnviarPix"
+            android:text="Enviar PIX"
+            android:backgroundTint="@android:color/holo_blue_light"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

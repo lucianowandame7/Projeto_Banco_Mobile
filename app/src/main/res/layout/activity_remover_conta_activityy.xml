@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <!-- Título ou cabeçalho -->
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remover Dinheiro da Conta"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:textColor="#000000" />
+
+    <!-- Campo de entrada para o valor -->
+    <EditText
+        android:id="@+id/editTextRemoverDinheiroConta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o valor a ser removido"
+        android:inputType="numberDecimal"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        android:textSize="18sp" />
+
+    <!-- Espaçamento -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    <!-- Botão para remover o dinheiro -->
+    <Button
+        android:id="@+id/buttonRemoverDinheiro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remover Dinheiro"
+        android:onClick="RemoverDinheiroConta"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <!-- Espaçamento -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    <EditText
+        android:id="@+id/editTextSaldoRemover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Saldo"
+        android:inputType="text" />
+
+    <!-- Exibir saldo atualizado -->
+
+</LinearLayout>
