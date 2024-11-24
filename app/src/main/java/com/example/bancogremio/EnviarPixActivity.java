@@ -24,7 +24,7 @@ public class EnviarPixActivity extends AppCompatActivity {
         repositorioChavePix = new RepositorioChavePix(this);
 
         // Inicializa a caixa de saldo
-        caixaSaldo = findViewById(R.id.editTextSaldo);
+        caixaSaldo = findViewById(R.id.caixaSaldo);
 
         // Atualiza o saldo na tela ao carregar a atividade
         atualizarSaldoNaTela();
@@ -75,12 +75,16 @@ public class EnviarPixActivity extends AppCompatActivity {
         // Atualiza o saldo do remetente após a transação
         repositorioConta.atualizarSaldo(idRemetente, saldoAtual - valor);
 
+        // Registra o envio de Pix como uma transação no extrato
+        repositorioConta.adicionarTransacao(idRemetente, "Envio de Pix", valor);
+
         // Sucesso na transação
         Toast.makeText(this, "PIX enviado com sucesso", Toast.LENGTH_LONG).show();
 
         // Atualiza o saldo na tela após o envio
         atualizarSaldoNaTela();
 
+        // Limpa os campos da tela
         limparTela();
     }
 
@@ -143,6 +147,7 @@ public class EnviarPixActivity extends AppCompatActivity {
         caixaChaveReceber.setText("");
     }
 }
+
 
 
 

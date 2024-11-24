@@ -51,7 +51,7 @@ public class CadastroChavePixActivity extends AppCompatActivity {
 
         // Adiciona a nova chave Pix
         ChavePix chavepix = new ChavePix();
-        chavepix.numeroChave = Double.parseDouble(chavePix); // Certifique-se de que o tipo de `numeroChave` no modelo seja consistente
+        chavepix.numeroChave = Double.valueOf(String.format("%.0f", (chavePix))); // Certifique-se de que o tipo de `numeroChave` no modelo seja consistente
         repositorioChavePix.adicionarChavePix(chavepix);
 
         Toast.makeText(this, "Cadastro realizado com sucesso.", Toast.LENGTH_LONG).show();

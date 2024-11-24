@@ -71,7 +71,7 @@
 
         <!-- EditText para exibir o saldo -->
         <EditText
-            android:id="@+id/editTextSaldo"
+            android:id="@+id/caixaSaldo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"

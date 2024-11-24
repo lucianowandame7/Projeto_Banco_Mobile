@@ -35,13 +35,13 @@ public class RemoverContaActivity extends AppCompatActivity {
         buttonRemover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RemoverDinheiroConta(caixaRemover, caixaSaldo);
+                removerDinheiroConta(caixaRemover, caixaSaldo);
             }
         });
     }
 
     // Método para remover dinheiro da conta
-    public void RemoverDinheiroConta(EditText caixaRemover, EditText caixaSaldo) {
+    public void removerDinheiroConta(EditText caixaRemover, EditText caixaSaldo) {
         String valorString = caixaRemover.getText().toString();
 
         // Validar o valor inserido
@@ -72,6 +72,9 @@ public class RemoverContaActivity extends AppCompatActivity {
             // Calcula o novo saldo após remoção
             double novoSaldo = saldoAtual - valor;
             repositorioConta.atualizarSaldo(1, novoSaldo); // Usando ID 1 como exemplo, altere conforme necessário
+
+            // Registra a transação no banco de dados
+            repositorioConta.adicionarTransacao(1, "Remoção", -valor); // Valor negativo para indicar remoção
 
             // Atualiza o saldo na tela
             atualizarSaldoNaTela(caixaSaldo);

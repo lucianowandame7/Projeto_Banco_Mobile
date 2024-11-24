@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExtratoContaActivity">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f4f4f4">
 
+    <!-- Título da tela -->
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Extrato da Conta"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:textColor="#333333" />
+
+    <!-- ListView para exibir as transações -->
     <ListView
         android:id="@+id/ListViewExtrato"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="530dp"
+        android:background="#ffffff"
+        android:divider="@color/black"
+        android:dividerHeight="1dp"
+        android:padding="8dp" />
+
+
+</LinearLayout>

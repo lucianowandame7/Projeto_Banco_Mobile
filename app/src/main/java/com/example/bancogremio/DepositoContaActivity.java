@@ -24,7 +24,7 @@ public class DepositoContaActivity extends AppCompatActivity {
 
         // Liga os elementos da interface
         caixaDeposito = findViewById(R.id.editTextDepositoConta);
-        caixaSaldo = findViewById(R.id.editTextSaldo);
+        caixaSaldo = findViewById(R.id.caixaSaldo);
         Button buttonDepositar = findViewById(R.id.buttonDepositarConta);
 
         // Configura o botão para realizar depósitos
@@ -66,6 +66,9 @@ public class DepositoContaActivity extends AppCompatActivity {
             double novoSaldo = saldoAtual + valor;
             repositorioConta.atualizarSaldo(1, novoSaldo); // Usando ID 1 como exemplo, altere conforme necessário
 
+            // Registra o depósito como uma transação
+            repositorioConta.adicionarTransacao(1, "Depósito", valor);
+
             // Atualiza o saldo na tela
             atualizarSaldoNaTela();
 
@@ -83,3 +86,4 @@ public class DepositoContaActivity extends AppCompatActivity {
         caixaSaldo.setText(String.format("R$ %.2f", saldo));
     }
 }
+
