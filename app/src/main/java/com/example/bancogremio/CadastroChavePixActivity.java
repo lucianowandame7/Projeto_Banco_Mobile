@@ -18,36 +18,45 @@ public class CadastroChavePixActivity extends AppCompatActivity {
 
     public void CadastrarChavePix(View view) {
         EditText caixaCadastroChavePix = findViewById(R.id.editTextCadastroChavePix);
-        String chavePix = caixaCadastroChavePix.getText().toString();
+        String chavePix = caixaCadastroChavePix.getText().toString().replaceAll("[^0-9]", ""); // Remove formatação
 
         if (chavePix.isEmpty()) {
-            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Por favor, insira o número da chave Pix", Toast.LENGTH_LONG).show();
             return;
         }
 
-
-
-        // Validação
-        if (validarCPF(chavePix)==false) {
-            Toast.makeText(this, "CPF inválido", Toast.LENGTH_SHORT).show();
-            return;
-        } else if (validarTelefone(chavePix) == false) {
-            Toast.makeText(this, "Telefone inválido", Toast.LENGTH_SHORT).show();
+        // Identificar se é CPF ou telefone
+        if (chavePix.length() == 11) {
+            if (!validarCPF(chavePix)) {
+                Toast.makeText(this, "CPF inválido", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } else if (chavePix.length() == 10 || chavePix.length() == 11) {
+            if (!validarTelefone(chavePix)) {
+                Toast.makeText(this, "Telefone inválido", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } else {
+            Toast.makeText(this, "Entrada inválida. Digite um CPF ou telefone válido.", Toast.LENGTH_SHORT).show();
             return;
         }
-
 
         repositorioChavePix = new RepositorioChavePix(this);
 
-        ChavePix chavepix= new ChavePix();
-        chavepix.numeroChave = Double.parseDouble(chavePix);
-        repositorioChavePix.adionarChavePix(chavepix);
+        // Verifica se a chave já está cadastrada
+        if (repositorioChavePix.isChaveCadastrada(chavePix)) {
+            Toast.makeText(this, "Chave Pix já cadastrada.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        Toast.makeText(this,"Cadastro realizado" +
-                        " com sucesso.",
-                Toast.LENGTH_LONG).show();
+        // Adiciona a nova chave Pix
+        ChavePix chavepix = new ChavePix();
+        chavepix.numeroChave = Double.parseDouble(chavePix); // Certifique-se de que o tipo de `numeroChave` no modelo seja consistente
+        repositorioChavePix.adicionarChavePix(chavepix);
 
+        Toast.makeText(this, "Cadastro realizado com sucesso.", Toast.LENGTH_LONG).show();
     }
+
 
     // Método para validar CPF
     private boolean validarCPF(String cpf) {
@@ -94,3 +103,4 @@ public class CadastroChavePixActivity extends AppCompatActivity {
                 .replaceAll("(\\d{2})(\\d{4})(\\d{4})", "($1) $2-$3");
     }
 }
+

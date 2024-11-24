@@ -41,7 +41,9 @@
             android:layout_marginBottom="15dp"
             android:hint="Valor a pagar"
             android:inputType="numberDecimal"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:background="@android:drawable/editbox_background"/>
+
 
         <!-- EditText para Chave de Receber -->
         <EditText
@@ -51,7 +53,8 @@
             android:layout_marginBottom="15dp"
             android:hint="Digite a chave de quem vai receber"
             android:inputType="text"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:background="@android:drawable/editbox_background"/>
 
         <!-- Botão de Enviar PIX -->
         <Button

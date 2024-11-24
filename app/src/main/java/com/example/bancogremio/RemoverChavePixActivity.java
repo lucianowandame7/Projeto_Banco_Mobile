@@ -33,6 +33,15 @@ public class RemoverChavePixActivity extends AppCompatActivity {
             return;
         }
 
+        // Verificar se contém letras
+        if (numeroChave.matches(".*[a-zA-Z]+.*")) {
+            Toast.makeText(this, "Chaves Pix não podem conter letras. Insira apenas números.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // Remover formatações caso seja um CPF ou telefone
+        numeroChave = numeroChave.replaceAll("[^0-9]", "");
+
         // Buscar a chave Pix usando o número fornecido
         ChavePix chavePix = repositorioChavePix.buscarChavePixPorNumero(numeroChave);
 
@@ -45,5 +54,6 @@ public class RemoverChavePixActivity extends AppCompatActivity {
         repositorioChavePix.removerChavePixPorNumero(numeroChave);
         Toast.makeText(this, "Remoção da chave Pix realizada com sucesso.", Toast.LENGTH_LONG).show();
     }
-
 }
+
+

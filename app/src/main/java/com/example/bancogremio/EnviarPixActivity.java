@@ -37,6 +37,11 @@ public class EnviarPixActivity extends AppCompatActivity {
         String enviarPix = caixaEnviarPix.getText().toString();
         String chaveReceber = caixaChaveReceber.getText().toString();
 
+        // Verifica se o usuário tem uma chave Pix cadastrada
+        if (!usuarioTemChaveCadastrada()) {
+            Toast.makeText(this, "Você precisa cadastrar uma chave Pix antes de enviar", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         // Verifica se os campos estão preenchidos
         if (enviarPix.isEmpty() || chaveReceber.isEmpty()) {
@@ -77,6 +82,13 @@ public class EnviarPixActivity extends AppCompatActivity {
         atualizarSaldoNaTela();
 
         limparTela();
+    }
+
+    // Método para verificar se o usuário tem chave Pix cadastrada
+    private boolean usuarioTemChaveCadastrada() {
+        // Aqui você pode verificar no banco de dados se o usuário já tem uma chave Pix cadastrada.
+        // Supondo que o ID do usuário seja 1 (substitua pelo ID real do usuário)
+        return repositorioChavePix.usuarioTemChaveCadastrada(1);  // Passa o ID do usuário (exemplo: 1)
     }
 
     // Método para validar CPF ou telefone (chave Pix)
@@ -131,5 +143,6 @@ public class EnviarPixActivity extends AppCompatActivity {
         caixaChaveReceber.setText("");
     }
 }
+
 
 

@@ -19,26 +19,27 @@ public class RepositorioChavePix extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "create table chavePix " +
-                "(id integer not null primary key, " +
-                "numeroChave text)"; // Alterando para "text" para armazenar números de telefone ou CPF
+        String sql = "CREATE TABLE chavePix " +
+                "(id INTEGER NOT NULL PRIMARY KEY, " +
+                "numeroChave TEXT)"; // Alterado para "TEXT" para armazenar números de telefone ou CPF
         sqLiteDatabase.execSQL(sql);
-        Log.i("chavePix", "Criado com sucesso a tabela ChavePix");
+        Log.i("chavePix", "Criada com sucesso a tabela ChavePix");
     }
 
-    public void adionarChavePix(ChavePix chavePix) {
-        String sql = "insert into chavePix values(null, '" + chavePix.numeroChave + "')";
+    public void adicionarChavePix(ChavePix chavePix) {
+        String sql = "INSERT INTO chavePix VALUES(null, '" + chavePix.numeroChave + "')";
         Log.i("chavePix", "SQL insert chavePix: " + sql);
         super.getWritableDatabase().execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        // Lógica de upgrade (se necessário)
     }
 
     public List<ChavePix> listarChavePix() {
         ArrayList<ChavePix> lista = new ArrayList<>();
-        String sql = "select * from chavePix";
+        String sql = "SELECT * FROM chavePix";
         Cursor cursor = getWritableDatabase().rawQuery(sql, null);
         cursor.moveToFirst();
         for (int i = 0; i < cursor.getCount(); i++) {
@@ -52,9 +53,12 @@ public class RepositorioChavePix extends SQLiteOpenHelper {
         return lista;
     }
 
+
+
+
     // Método para buscar chave Pix pelo número da chave
     public ChavePix buscarChavePixPorNumero(String numeroChave) {
-        String sql = "select * from chavePix where numeroChave = ?";
+        String sql = "SELECT * FROM chavePix WHERE numeroChave = ?";
         Cursor cursor = getWritableDatabase().rawQuery(sql, new String[]{numeroChave});
         cursor.moveToFirst();
         ChavePix chavePix = null;
@@ -69,20 +73,31 @@ public class RepositorioChavePix extends SQLiteOpenHelper {
 
     // Método para remover a chave Pix pelo número da chave
     public void removerChavePixPorNumero(String numeroChave) {
-        String sql = "delete from chavePix where numeroChave = ?";
+        String sql = "DELETE FROM chavePix WHERE numeroChave = ?";
         getWritableDatabase().execSQL(sql, new String[]{numeroChave});
         Log.i("chavePix", "SQL delete chavePix: " + sql);
     }
 
     // Método para verificar se a chave Pix está cadastrada
     public boolean isChaveCadastrada(String numeroChave) {
-        String sql = "select count(*) from chavePix where numeroChave = ?";
+        String sql = "SELECT COUNT(*) FROM chavePix WHERE numeroChave = ?";
         Cursor cursor = getWritableDatabase().rawQuery(sql, new String[]{numeroChave});
         cursor.moveToFirst();
         int count = cursor.getInt(0); // Obtém o resultado da contagem
         cursor.close();
         return count > 0; // Retorna true se a chave está cadastrada, senão false
     }
-}
 
+    // Método para verificar se o usuário tem uma chave Pix cadastrada
+    public boolean usuarioTemChaveCadastrada(int idUsuario) {
+        // Aqui você pode ajustar para verificar no banco se o usuário tem uma chave cadastrada.
+        // Supondo que você tenha uma forma de associar um usuário ao seu número de chave Pix.
+        String sql = "SELECT COUNT(*) FROM chavePix WHERE id = ?";
+        Cursor cursor = getWritableDatabase().rawQuery(sql, new String[]{String.valueOf(idUsuario)});
+        cursor.moveToFirst();
+        int count = cursor.getInt(0); // Obtém o resultado da contagem
+        cursor.close();
+        return count > 0; // Retorna true se o usuário tem uma chave cadastrada, senão false
+    }
+}
 
